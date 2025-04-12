@@ -1,9 +1,17 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=36)
+    slug = models.SlugField()
+
+
 class BlogPost(models.Model):
     """La clé primaire sera généré automatiquement par Django "pk" """
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) # Spécifier le comportement si User venait à être supprimé
+    category = models.ManyToManyField(Category) #Lien plusieurs à plusieurs
     title = models.CharField(max_length=128) # Créer un champs de type CharField de longueur 128
     slug = models.SlugField() # Afficher le titre dans l'URL "x-x-x..."
     published = models.BooleanField(default=False)

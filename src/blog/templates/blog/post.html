@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ blog_post.title}}</title>
-</head>
-<body>
-    <h1> Fichier de template : {{ blog_post.title}}</h1>
-    <p>{{ blog_post.content}}</p>
-</body>
-</html>
+{% extends 'blog/base.html' %} 
+{% block content %}
+    <a href="{% url 'blog-index' %}">Home</a>
+    <h1>{{ post_slug }}</h1>
+    <p>{{ post.content|lower|safe }}</p>
+{% endblock %}

@@ -25,6 +25,9 @@ class BlogPost(models.Model):
             return "L'article est publié"
         return "L'article n'est pas publié"
     
+    def number_of_words(self):
+        return len(self.content.split())
+    
     def save(self, *args, **kwargs): # arguments dans le cli
         
         # automatisation du slug en fonction du titre à chaque sauvegarde

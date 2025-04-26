@@ -1,0 +1,45 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">
+            BLOG Admin 🚀
+        </a>
+    </h1>
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        /* Changer le header */
+        #header {
+            background-color: #1e3a8a; /* Bleu profond */
+            color: white;
+        }
+
+        /* Le lien du branding */
+        #branding h1 a {
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            text-decoration: none;
+        }
+
+        /* Hover du branding */
+        #branding h1 a:hover {
+            color: #60a5fa; /* Bleu plus clair */
+        }
+
+        /* Background de la page login */
+        body.login {
+            background-color: #f0f4f8;
+        }
+
+        /* Footer admin (facultatif) */
+        #footer {
+            background-color: #1e3a8a;
+            color: white;
+        }
+    </style>
+{% endblock %}

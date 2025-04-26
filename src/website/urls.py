@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blog.views import blog_index, blog_post, home
+from store.views import books, book
 
 urlpatterns = [
     path('', home, name="home"),
-    path('admin/', admin.site.urls),
+    path('custom-admin/', admin.site.urls),
     path('blog/', blog_index, name='blog-index'),
-    path('blog/<str:slug>/', blog_post, name="blog-post")
+    path('blog/<str:slug>/', blog_post, name="blog-post"),
+    path('store/', books, name="store-index"),
+    path('store/<int:book_pk>/', book, name="store-book")
 ]

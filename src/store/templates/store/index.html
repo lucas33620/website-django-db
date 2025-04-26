@@ -1,0 +1,14 @@
+{% extends 'store/base.html' %}
+{% block title %}<title>Index</title>{% endblock %}
+
+{% block content %}
+    {% for book in books %}
+        <h1>
+            <a href="{%url 'store-book' book.pk %}">
+                {{ forloop.counter}}. {{book.title|title}}
+            </a>
+        </h1>
+    {% empty %}
+        <li>Sorry, no article</li>
+    {% endfor %}   
+{% endblock %}     

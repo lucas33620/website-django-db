@@ -1,0 +1,8 @@
+{% extends 'store/base.html' %}
+{% block title %}<title>{{ book.title|title }}</title>{% endblock %}
+
+{% block content %}
+    <h1> {{ book.title|title }}</h1>
+    <h5> {{ book.author }}</h5>
+    <p>{{ book.summary|truncatewords:100|striptags|safe }}</p>
+{% endblock %}
